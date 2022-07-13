@@ -48,7 +48,7 @@ def add_member(request):
             member.bio = request.POST.get('bio')
             member.location = request.POST.get('location')
             member.save()
-            messages.success(request, "New members added successully !!")
+            messages.success(request, "New member added successully !!")
             return HttpResponseRedirect('/backend')
     else:
             return render(request, 'add.html')
@@ -90,7 +90,7 @@ def delete_member(request, member_id):
     member = Member.objects.get(id = member_id)
     member.delete()
 
-    messages.success(request, "Member member successully !!")
+    messages.success(request, "Member deleted successully !!")
     return HttpResponseRedirect('/backend')
 
  
