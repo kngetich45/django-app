@@ -4,8 +4,7 @@ from urllib import request
 from django import views
 from django.test import RequestFactory, TestCase
 from django.urls import reverse 
-from . models import Member
-from . views import frontend
+from . models import Member 
 
 # Create your tests here.
 class ModelTesting(TestCase):
