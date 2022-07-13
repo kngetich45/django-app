@@ -1,0 +1,4 @@
+flake8 - code quality
+covereage report
+git git
+lint

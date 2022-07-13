@@ -9,7 +9,7 @@ urlpatterns = [
     
     path('login/', include('django.contrib.auth.urls')),
 
-    #--------------- backend ---------------------------|
+#--------------- backend ---------------------------|
 # Backend section.
 path('backend/', views.backend, name="backend"),
 # Add member.
