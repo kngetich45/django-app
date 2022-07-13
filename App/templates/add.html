@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+
+<!--Button on navbar-->
+{% block btn-nav %}
+  <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm border-light text-light" id="btn-nav">Logout</a>
+{% endblock btn-nav %}
+
+<!--Title on navbar-->
+{% block nav-title %}
+     <i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp; Add Member 
+{% endblock nav-title %}
+
+
+<!--page content--> 
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-body border-dark text-primary mt-s">
+                <span class="text-center">{% block card-title %} FILL OUT THE FORM {% endblock card-title %} </span>
+            </div>
+            <Form  method="POST" {% block formAction %} action="/add_member" {% endblock formAction %} autocomplete="off" enctype="multipart/form-data" class="card p-3 border-dark mt-3">
+                {% csrf_token %}
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Name</span>
+                    <input type="text" class="form-control" name="name" placeholder="First and last name" {% block value-name %} {% endblock value-name %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Username</span>
+                    <input type="text" class="form-control" name="username" placeholder="UserName" {% block value-username %} {% endblock value-username %}>
+                      
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Phone Number</span>
+                    <input type="number" class="form-control" name="phone" placeholder="Phone Number" {% block value-phone %} {% endblock value-phone %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Email</span>
+                    <input type="email" class="form-control" name="email" placeholder="Email" {% block value-email %} {% endblock value-email %}>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Age</span>
+                    <input type="number" class="form-control" name="age" placeholder="Age" {% block value-age %} {% endblock value-age %}>
+                </div>
+                
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text side-label">Location</span>
+                    <input type="text" class="form-control" name="location" placeholder="Location" {% block value-location %} {% endblock value-location %}>
+                </div>  
+                <div class="input-group input-group-sm mb-3">  
+                    <label class="input-group-text side-label">Gender</label>
+                    <select class="form-select" name="gender">
+                        {% block option %}
+                        <option value="" hidden>Select the gender</option>
+                        {% endblock option %} 
+                        <option disabled></option>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                    
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    
+                    <textarea rows="7" class="form-control" name="bio" placeholder="Comments">{% block Bio %} {% endblock Bio %}</textarea>
+                </div>
+                <div class="d-grid gap-2 mt-2">
+                    <button type="submit" class="btn- btn-primary btn-sm">
+                        {% block submit-button %}
+                        <i class="fas fa-plus"></i>&nbsp; Add
+                        {% endblock submit-button %}
+
+                    </button>
+                    <a href="{% url 'backend' %}" class="btn btn-dark btn-sm"><i class="fas fa-chevron-left"></i>&nbsp; Back 
+                    </a>
+                </div>
+
+                <!---Id hiddedn to edit-->
+                {% block Id-hidden %}{% endblock Id-hidden %}
+                 
+            </Form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

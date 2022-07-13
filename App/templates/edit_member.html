@@ -1,0 +1,45 @@
+{% extends 'add.html' %}
+
+ 
+<!--Title on navbar-->
+{% block nav-title %}
+     <i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp; {{ member.name }} 
+{% endblock nav-title %}
+
+<!--Form Title extended here-->
+
+{% block card-title %}
+
+Registered: <span class="text-dark">{{ member.created_at | date:'m/d/Y (H:i)' }}</span>
+
+{% endblock card-title %}
+
+
+<!--Form action update and add-->
+
+{% block formAction %} action="/edit_member" {% endblock formAction %}
+
+<!--All data inputs extended-->
+
+{% block value-name %} value="{{ member.name }}" {% endblock value-name %}
+{% block value-username %} value="{{ member.username }}" {% endblock value-username %}
+{% block value-phone %} value="{{ member.phone }}" {% endblock value-phone %}
+{% block value-age %} value="{{ member.age }}" {% endblock value-age %}
+{% block value-location %} value="{{ member.location }}" {% endblock value-location %}
+{% block value-email %} value="{{ member.email }}" {% endblock value-email %} 
+{% block option %} 
+<option style="background-color: #d3d3d3; color:#007bff "> {{ member.gender }} </option>
+{% endblock option %}
+
+{% block Bio %}{{ member.bio }}{% endblock Bio %}
+
+<!--Edit button -->
+
+{% block submit-button %}
+<i class="fas fa-edit"></i>&nbsp; Update
+{% endblock submit-button %}
+
+  <!---Id hiddedn to edit-->
+{% block Id-hidden %}
+  <input type="hidden" value="{{ member.id }}" name="id">
+{% endblock Id-hidden %}
