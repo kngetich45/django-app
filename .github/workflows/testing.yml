@@ -3,11 +3,11 @@ name : Bevics Test
 on:
   push:
      branches:
-        -main
+        - main
 
   pull_request:
     branches:
-        -main
+        - main
   
   # on:
   #   schecule
@@ -37,7 +37,7 @@ jobs:
         pip install coverage
         coverage run manage.py test
         coverage report
-    - name: Bevics Testing
+    - name: Bevics Test
       run:
         python manage.py test
 
