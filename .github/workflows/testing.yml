@@ -27,10 +27,7 @@ jobs:
     - name: Install dependencies
       run:
         python - pip install --upgrade pip
-        pip install -r requirements.txt
-        python -m pip install -U pip
-        pip install -upgrade setuptools
-        pip install ez_setup
+        pip install -r requirements.txt 
     - name: Lint with flake8
       run:
         pip install flake8
